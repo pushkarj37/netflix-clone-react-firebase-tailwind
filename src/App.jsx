@@ -7,6 +7,7 @@ import { Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import { AuthContextProvider } from './context/AuthContext';
 import ProtectedRoutes from './components/ProtectedRoutes';
+import Player from './pages/Player';
 
 
 function App() {
@@ -23,6 +24,14 @@ function App() {
             element={
               <ProtectedRoutes>
                 <Profile />
+              </ProtectedRoutes>
+            }
+          />
+          <Route
+            path="/player"
+            element={
+              <ProtectedRoutes>
+                <Player />
               </ProtectedRoutes>
             }
           />
