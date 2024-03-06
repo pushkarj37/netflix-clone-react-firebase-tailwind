@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import endpoints, { createImageUrl } from '../services/movieServices';
+import { useNavigate } from 'react-router-dom';
 
 const Hero = () => {
     const [movie, setMovie] = useState({});
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     useEffect(() => {
         axios.get(endpoints.popular)
@@ -55,7 +57,7 @@ const Hero = () => {
             <div className="absolute w-full top-[10%] lg:top-[25%] p-8 md:px-8 py-16">
                 <h1 className="text-3xl md:text-6xl font-nsans-bold">{title}</h1>
                 <div className="mt-8 mb-4">
-                    <button className="capitalize border bg-gray-300 text-black py-2 px-5">
+                    <button onClick={()=>navigate("/player")} className="capitalize border bg-gray-300 text-black py-2 px-5">
                         Play
                     </button>
                     <button className="capitalize border border-gray-300 py-2 px-5 ml-4">
